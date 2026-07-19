@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% block title %}AI Review Report{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <div class="card shadow-lg p-4">
+
+        <h2 class="text-center mb-4 text-primary">
+            🤖 AI Code Review Report
+        </h2>
+
+        <hr>
+
+        <div class="row mb-4">
+
+            <div class="col-md-6">
+                <h5>📂 File Name</h5>
+                <p>{{ filename }}</p>
+            </div>
+
+            <div class="col-md-6">
+                <h5>💻 Programming Language</h5>
+                <p>{{ language }}</p>
+            </div>
+
+        </div>
+
+        <hr>
+
+       <h4 class="mb-3" style="color:#60A5FA !important; font-size:32px; font-weight:700;">
+    AI Review
+</h4>
+
+        <div id="reviewBox" class="review-box">
+            <pre>{{ review }}</pre>
+        </div>
+
+        <div class="mt-4 d-flex flex-wrap gap-3">
+
+            <button class="btn btn-primary" onclick="copyReview()">
+                📋 Copy Review
+            </button>
+
+            <button class="btn btn-success" onclick="window.print()">
+                📄 Download / Print
+            </button>
+
+            <a href="/" class="btn btn-secondary">
+                🔄 Analyze Another File
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+function copyReview(){
+
+    const text=document.getElementById("reviewBox").innerText;
+
+    navigator.clipboard.writeText(text);
+
+    alert("Review copied successfully!");
+
+}
+
+</script>
+
+{% endblock %}

@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+{% block title %}
+Home | AI Code Review Assistant
+{% endblock %}
+
+{% block content %}
+
+<div class="container py-3 main-container">
+
+    <div class="card">
+
+        <div class="text-center mb-3">
+
+            <h1 class="hero-title">
+                🤖 AI Code Review Assistant
+            </h1>
+
+            <p class="hero-subtitle">
+                Analyze your source code using AI. Detect bugs,
+                security issues, performance problems,
+                and coding best practices in seconds.
+            </p>
+
+        </div>
+
+        <form action="/upload"
+              method="POST"
+              enctype="multipart/form-data">
+
+            <div class="mb-3">
+
+                <label class="form-label">
+
+                    Upload Your Source Code
+
+                </label>
+
+                <input
+
+                    class="form-control"
+
+                    type="file"
+
+                    name="code_file"
+
+                    accept=".py,.c,.cpp,.java,.js"
+
+                    required>
+
+                <div class="form-text">
+
+                    Supported files:
+                    Python (.py),
+                    C (.c),
+                    C++ (.cpp),
+                    Java (.java),
+                    JavaScript (.js)
+
+                </div>
+
+            </div>
+
+            <div class="d-grid mt-3">
+
+                <button
+                    type="submit"
+                    class="btn btn-primary">
+
+                    <i class="bi bi-rocket-takeoff-fill"></i>
+
+                    Analyze Code
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}
